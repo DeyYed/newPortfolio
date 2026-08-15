@@ -13,6 +13,7 @@ import WorkExperiencePage from './pages/WorkExperiencePage/WorkExperiencePage'
 import AboutPage from './pages/AboutPage/AboutPage'
 import HomePage from './pages/HomePage/HomePage'
 import NotFound from './components/NotFound/NotFound'
+import RouteSeo from './components/RouteSeo/RouteSeo'
 import darkLogo from './assets/logos/dark-logo.png'
 import lightLogo from './assets/logos/light-logo.png'
 import { HEADER_NAV_ITEMS, SIDE_MENU_ITEMS, SOCIAL_ITEMS } from './data/navigation'
@@ -185,8 +186,7 @@ function App() {
   const isCertificatesPage = pathname === certificatesPath
   const isProjectsPage = pathname === projectsPath
   const isWorkExperiencePage = pathname === workExperiencePath
-
-  if (
+  const isNotFoundPage =
     pathname !== homePath &&
     !isContactPage &&
     !isAboutPage &&
@@ -195,12 +195,19 @@ function App() {
     !isCertificatesPage &&
     !isProjectsPage &&
     !isWorkExperiencePage
-  ) {
-    return <NotFound onGoHome={handleGoHome} onContact={handleContact} />
+
+  if (isNotFoundPage) {
+    return (
+      <>
+        <RouteSeo pathname={pathname} homePath={homePath} isNotFound />
+        <NotFound onGoHome={handleGoHome} onContact={handleContact} />
+      </>
+    )
   }
 
   return (
     <div className="app-shell">
+      <RouteSeo pathname={pathname} homePath={homePath} isNotFound={false} />
       <Header
         logoSrc={darkLogo}
         logoAlt="Portfolio logo"
