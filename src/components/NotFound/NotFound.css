@@ -1,0 +1,50 @@
+.not-found {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 40px 24px;
+  display: grid;
+  place-items: center;
+  overflow-x: hidden;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  font-family: var(--font-body);
+  text-align: center;
+}
+
+.not-found__content {
+  width: min(100%, 680px);
+}
+
+.not-found__code {
+  margin: 0;
+  font-family: var(--font-header);
+  font-size: clamp(72px, 14vw, 140px);
+  font-weight: 600;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+}
+
+.not-found__title {
+  margin: 30px 0 0;
+  font-family: var(--font-header);
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-heading);
+  text-transform: uppercase;
+}
+
+.not-found__message {
+  max-width: 520px;
+  margin: 16px auto 0;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.not-found__actions {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}

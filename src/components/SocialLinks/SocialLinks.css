@@ -1,0 +1,100 @@
+.social-links {
+  --social-links-color: var(--color-black);
+  --social-links-contrast: var(--color-white);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.social-links--light {
+  --social-links-color: var(--color-white);
+  --social-links-contrast: var(--color-black);
+}
+
+.social-links__link {
+  display: inline-flex;
+  color: var(--social-links-color);
+  text-decoration: none;
+}
+
+.social-links__icon {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--social-links-color);
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: var(--social-links-color);
+  overflow: visible;
+}
+
+.social-links__icon svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.social-links__icon::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  border-top-color: var(--social-links-color);
+  border-right-color: var(--social-links-color);
+  opacity: 0;
+}
+
+.social-links__link:hover .social-links__icon,
+.social-links__link:focus-visible .social-links__icon {
+  animation: social-links-fill 0.65s ease forwards;
+}
+
+.social-links__link:hover .social-links__icon::after,
+.social-links__link:focus-visible .social-links__icon::after {
+  opacity: 1;
+  animation: social-links-ring 0.65s linear 1;
+}
+
+@keyframes social-links-ring {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes social-links-fill {
+  0%,
+  70% {
+    background-color: transparent;
+    color: var(--social-links-color);
+  }
+  100% {
+    background-color: var(--social-links-color);
+    color: var(--social-links-contrast);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .social-links__link:hover .social-links__icon,
+  .social-links__link:focus-visible .social-links__icon,
+  .social-links__link:hover .social-links__icon::after,
+  .social-links__link:focus-visible .social-links__icon::after {
+    animation: none;
+  }
+
+  .social-links__link:hover .social-links__icon,
+  .social-links__link:focus-visible .social-links__icon {
+    background-color: var(--social-links-color);
+    color: var(--social-links-contrast);
+  }
+}

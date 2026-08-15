@@ -1,0 +1,132 @@
+.contact-form-section {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  font-family: var(--font-body);
+  padding: 96px 40px 112px;
+}
+
+.contact-form-section__inner {
+  width: min(100%, 1100px);
+  margin: 0 auto;
+}
+
+.contact-form-section__header {
+  max-width: 720px;
+  margin: 0 auto 52px;
+  text-align: center;
+}
+
+.contact-form-section__title {
+  margin: 0;
+  font-family: var(--font-header);
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-heading);
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.contact-form-section__description {
+  margin: 20px auto 0;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.contact-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px 24px;
+}
+
+.contact-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.contact-form__field--message {
+  grid-column: 1 / -1;
+}
+
+.contact-form__field input,
+.contact-form__field textarea {
+  width: 100%;
+  border: 1px solid var(--color-gray-200);
+  border-radius: 8px;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  font: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1.5;
+  text-transform: none;
+  padding: 11px 12px;
+}
+
+.contact-form__field input {
+  min-height: 48px;
+}
+
+.contact-form__field textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.contact-form__field input:focus-visible,
+.contact-form__field textarea:focus-visible {
+  border-color: var(--color-black);
+  outline: 2px solid var(--color-black);
+  outline-offset: 1px;
+}
+
+.contact-form__submit {
+  grid-column: 1 / -1;
+  justify-self: center;
+  margin-top: 8px;
+}
+
+@media (max-width: 700px) {
+  .contact-form-section {
+    padding: 64px 20px 80px;
+  }
+
+  .contact-form-section__header {
+    margin-bottom: 40px;
+  }
+
+  .contact-form-section__title {
+    font-size: 30px;
+  }
+
+  .contact-form-section__description {
+    font-size: 14px;
+  }
+
+  .contact-form {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .contact-form__field {
+    font-size: 11px;
+  }
+
+  .contact-form__field input,
+  .contact-form__field textarea {
+    font-size: 14px;
+  }
+
+  .contact-form__field--message,
+  .contact-form__submit {
+    grid-column: auto;
+  }
+
+  .contact-form__submit {
+    font-size: 12px;
+  }
+}

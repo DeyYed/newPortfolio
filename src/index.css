@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --font-header: 'Cinzel', serif;
+  --font-body: 'Quicksand', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-size-h1: 60px;
+  --font-size-h2: 40px;
+  --font-size-h3: 30px;
+  --font-weight-heading: 500;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3 {
+  font-weight: var(--font-weight-heading);
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+}
+
+@media (max-width: 700px) {
+  :root {
+    --font-size-h1: 34px;
+    --font-size-h2: 30px;
+    --font-size-h3: 24px;
+  }
+
+  body {
+    font-size: 14px;
+  }
+}

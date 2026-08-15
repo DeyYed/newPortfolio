@@ -1,0 +1,70 @@
+.wwu {
+  min-height: 70vh;
+  min-height: 70dvh;
+  padding: 96px 40px;
+  display: grid;
+  place-items: center;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.58)),
+    var(--wwu-background-image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: var(--color-white);
+  font-family: var(--font-body);
+  text-align: center;
+}
+
+.wwu__content {
+  width: min(100%, 780px);
+}
+
+.wwu__pre-title {
+  margin: 0 0 16px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.wwu__title {
+  margin: 0;
+  font-family: var(--font-header);
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-heading);
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.wwu__description {
+  max-width: 720px;
+  margin: 24px auto 0;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.wwu__button {
+  --button-color: var(--color-white);
+  --button-contrast: var(--color-black);
+  margin-top: 34px;
+}
+
+@media (max-width: 700px) {
+  .wwu {
+    min-height: 620px;
+    padding: 72px 20px;
+    background-attachment: scroll;
+  }
+
+  .wwu__description {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wwu {
+    background-attachment: scroll;
+  }
+}

@@ -1,0 +1,105 @@
+.project-feature {
+  padding: 96px 0;
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+.project-feature--dark {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.project-feature__inner {
+  width: min(100%, 1240px);
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: clamp(48px, 7vw, 96px);
+}
+
+.project-feature__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.project-feature__title {
+  margin: 0;
+  font-family: var(--font-header);
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-heading);
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.project-feature__description {
+  margin: 24px 0 0;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.project-feature__button {
+  margin-top: 34px;
+}
+
+.project-feature--dark .project-feature__button {
+  --button-color: var(--color-white);
+  --button-contrast: var(--color-black);
+}
+
+.project-feature__media {
+  min-width: 0;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid var(--color-gray-200);
+  background-color: var(--color-gray-100);
+}
+
+.project-feature--dark .project-feature__media {
+  border-color: rgba(255, 255, 255, 0.28);
+  background-color: #111111;
+}
+
+.project-feature--image-left .project-feature__media {
+  order: -1;
+}
+
+.project-feature__image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 350ms ease;
+}
+
+.project-feature__media:hover .project-feature__image {
+  transform: scale(1.02);
+}
+
+@media (max-width: 800px) {
+  .project-feature {
+    padding: 64px 0;
+  }
+
+  .project-feature__inner {
+    padding: 0 20px;
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .project-feature--image-left .project-feature__media {
+    order: initial;
+  }
+
+  .project-feature__description {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-feature__image {
+    transition: none;
+  }
+}

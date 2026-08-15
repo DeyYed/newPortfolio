@@ -1,0 +1,118 @@
+.home-page {
+  min-height: 100vh;
+  background-color: var(--color-black);
+}
+
+.home-video-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 620px;
+  overflow: hidden;
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.home-video-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: rgba(0, 0, 0, 0.36);
+  pointer-events: none;
+}
+
+.home-video-hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.home-video-hero__content {
+  position: absolute;
+  right: 40px;
+  bottom: 106px;
+  left: 40px;
+  z-index: 1;
+  max-width: 1100px;
+}
+
+.home-video-hero__title {
+  min-height: 1.15em;
+  font-family: var(--font-header);
+  font-size: clamp(34px, 4.5vw, var(--font-size-h1));
+  font-weight: var(--font-weight-heading);
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.home-introduction {
+  padding: 96px 0;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  text-align: center;
+}
+
+.home-introduction__inner {
+  width: min(100%, 980px);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.home-introduction__title {
+  margin: 0;
+  font-family: var(--font-header);
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-heading);
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.home-introduction__copy {
+  margin-top: 30px;
+  display: grid;
+  gap: 22px;
+}
+
+.home-introduction__copy p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.home-introduction__button {
+  margin-top: 36px;
+}
+
+@media (max-width: 600px) {
+  .home-video-hero {
+    min-height: 560px;
+  }
+
+  .home-video-hero__content {
+    right: 20px;
+    bottom: 96px;
+    left: 20px;
+  }
+
+  .home-video-hero__title {
+    font-size: clamp(28px, 9vw, 42px);
+  }
+
+  .home-introduction {
+    padding: 64px 0;
+  }
+
+  .home-introduction__inner {
+    padding: 0 20px;
+  }
+
+  .home-introduction__copy p {
+    font-size: 16px;
+  }
+}
