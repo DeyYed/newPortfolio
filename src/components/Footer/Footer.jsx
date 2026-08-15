@@ -17,8 +17,8 @@ function Footer({ logoSrc, socialItems, onHomeClick }) {
               <div className="site-footer__contact-grid">
                 <div className="site-footer__contact-item">
                   <p className="site-footer__label">Email</p>
-                  <a className="site-footer__value-link" href="mailto:johndayrillp.flores@gmail.com">
-                    johndayrillp.flores@gmail.com
+                  <a className="site-footer__value-link" href="mailto:johndayrill.flores@gmail.com">
+                    johndayrill.flores@gmail.com
                   </a>
                 </div>
                 <div className="site-footer__contact-item">

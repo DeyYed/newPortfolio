@@ -101,8 +101,8 @@ function GetInTouchPopup({ isOpen, onClose, socialItems, onSubmit }) {
           <div className="get-in-touch-popup__details">
             <div className="get-in-touch-popup__contact">
               <p className="get-in-touch-popup__name">John Dayrill Flores</p>
-              <a href="mailto:johndayrillp.flores@gmail.com">
-                johndayrillp.flores@gmail.com
+              <a href="mailto:johndayrill.flores@gmail.com">
+                johndayrill.flores@gmail.com
               </a>
               <a href="tel:09078050622">09078050622</a>
             </div>

@@ -13,9 +13,9 @@ function AboutDetails({ imageSrc, imageAlt, title, paragraphs, socialItems }) {
               <p className="about-details__label">Email</p>
               <a
                 className="about-details__contact-link"
-                href="mailto:johndayrillp.flores@gmail.com"
+                href="mailto:johndayrill.flores@gmail.com"
               >
-                johndayrillp.flores@gmail.com
+                johndayrill.flores@gmail.com
               </a>
             </div>
 

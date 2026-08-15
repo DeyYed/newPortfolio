@@ -26,9 +26,17 @@ export const SIDE_MENU_ITEMS = [
 ]
 
 export const SOCIAL_ITEMS = [
-  { label: 'Facebook', href: 'https://facebook.com', icon: 'facebook' },
-  { label: 'LinkedIn', href: 'https://linkedin.com', icon: 'linkedin' },
-  { label: 'GitHub', href: 'https://github.com', icon: 'github' },
-  { label: 'Gmail', href: 'mailto:johndayrillp.flores@gmail.com', icon: 'gmail' },
+  {
+    label: 'Facebook',
+    href: 'https://www.facebook.com/john.dayrill16/',
+    icon: 'facebook',
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/john-dayrill-flores/',
+    icon: 'linkedin',
+  },
+  { label: 'GitHub', href: 'https://github.com/DeyYed', icon: 'github' },
+  { label: 'Gmail', href: 'mailto:johndayrill.flores@gmail.com', icon: 'gmail' },
   { label: 'Phone Number', href: 'tel:09078050622', icon: 'phone' },
 ]
