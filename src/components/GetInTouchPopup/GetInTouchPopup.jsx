@@ -104,7 +104,7 @@ function GetInTouchPopup({ isOpen, onClose, socialItems, onSubmit }) {
               <a href="mailto:johndayrill.flores@gmail.com">
                 johndayrill.flores@gmail.com
               </a>
-              <a href="tel:09078050622">09078050622</a>
+              <a href="tel:09078050622">+63 907-805-0622</a>
             </div>
 
             <div className="get-in-touch-popup__address">
