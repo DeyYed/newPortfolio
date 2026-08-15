@@ -6,8 +6,6 @@ import './WorkExperienceSlider.css'
 function WorkExperienceSlider({ experiences, description, onViewMore }) {
   const [activeIndex, setActiveIndex] = useState(0)
   const sectionTitleId = useId()
-  const activeExperience = experiences[activeIndex]
-
   const changeExperience = (direction) => {
     setActiveIndex(
       (index) => (index + direction + experiences.length) % experiences.length,
@@ -36,33 +34,41 @@ function WorkExperienceSlider({ experiences, description, onViewMore }) {
             <IoArrowBack aria-hidden="true" />
           </Button>
 
-          <article className="work-experience-slider__content" aria-live="polite">
-            <h3 className="work-experience-slider__title">
-              {activeExperience.title}
-            </h3>
-            <p className="work-experience-slider__company">
-              {activeExperience.company}
-            </p>
-            <p className="work-experience-slider__meta">
-              {activeExperience.meta}
-            </p>
-            <p className="work-experience-slider__description">
-              {activeExperience.description}
-            </p>
-            <Button
-              className="work-experience-slider__view-more"
-              href="/work-experience"
-              variant="solid"
-              onClick={(event) => {
-                if (onViewMore) {
-                  event.preventDefault()
-                  onViewMore()
-                }
-              }}
+          <div className="work-experience-slider__viewport" aria-live="polite">
+            <div
+              className="work-experience-slider__track"
+              style={{ transform: `translateX(-${activeIndex * 100}%)` }}
             >
-              View More
-            </Button>
-          </article>
+              {experiences.map((experience, index) => (
+                <article
+                  className="work-experience-slider__content"
+                  key={`${experience.title}-${experience.company}`}
+                  aria-hidden={index !== activeIndex}
+                >
+                  <h3 className="work-experience-slider__title">{experience.title}</h3>
+                  <p className="work-experience-slider__company">{experience.company}</p>
+                  <p className="work-experience-slider__meta">{experience.meta}</p>
+                  <p className="work-experience-slider__description">
+                    {experience.description}
+                  </p>
+                  <Button
+                    className="work-experience-slider__view-more"
+                    href="/work-experience"
+                    variant="solid"
+                    tabIndex={index === activeIndex ? undefined : -1}
+                    onClick={(event) => {
+                      if (onViewMore) {
+                        event.preventDefault()
+                        onViewMore()
+                      }
+                    }}
+                  >
+                    View More
+                  </Button>
+                </article>
+              ))}
+            </div>
+          </div>
 
           <Button
             className="work-experience-slider__arrow"
