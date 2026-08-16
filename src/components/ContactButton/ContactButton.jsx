@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState } from 'react'
+import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { IoClose } from 'react-icons/io5'
 import Button from '../Button/Button'
 import ContactSubmissionSuccess from '../ContactSubmissionSuccess/ContactSubmissionSuccess'
@@ -26,11 +26,13 @@ function ContactButton({
     handleSubmit,
     isSubmitting,
     isSuccess,
+    resetSubmission,
   } = useContactSubmission(onSubmit, () => setIsOpen(false))
 
-  const closeForm = () => {
+  const closeForm = useCallback(() => {
+    resetSubmission()
     setIsOpen(false)
-  }
+  }, [resetSubmission])
 
   useEffect(() => {
     if (!isOpen) {
@@ -58,7 +60,7 @@ function ContactButton({
       document.removeEventListener('pointerdown', handlePointerDown)
       document.removeEventListener('keydown', handleKeyDown)
     }
-  }, [isOpen])
+  }, [closeForm, isOpen])
 
   useEffect(() => {
     const footer = document.querySelector('.site-footer')
@@ -72,6 +74,7 @@ function ContactButton({
         setIsFooterVisible(entry.isIntersecting)
 
         if (entry.isIntersecting) {
+          resetSubmission()
           setIsOpen(false)
 
           if (containerRef.current?.contains(document.activeElement)) {
@@ -85,7 +88,7 @@ function ContactButton({
     observer.observe(footer)
 
     return () => observer.disconnect()
-  }, [])
+  }, [resetSubmission])
 
   useEffect(() => {
     if (wasOpenRef.current && !isOpen && !isFooterVisible) {

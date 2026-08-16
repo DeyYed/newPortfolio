@@ -48,7 +48,7 @@ const HOME_WORK_EXPERIENCES = [
     company: 'Luxury Presence · Full-time',
     meta: 'November 2025 – Present · United States · Remote',
     description:
-      'Produce high-volume, production-ready real estate websites for U.S. and international clients using Presence CMS while translating agent requirements and following state regulations, brokerage guidelines, and MLS requirements.',
+      'Produce high-volume, production-ready real estate websites for U.S. and international clients using Presence CMS while translating agent requirements, following compliance guidelines, and applying foundational on-page SEO through titles and meta descriptions.',
   },
 ]
 

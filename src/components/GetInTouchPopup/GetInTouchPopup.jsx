@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef } from 'react'
+import { useCallback, useEffect, useId, useRef } from 'react'
 import { IoClose } from 'react-icons/io5'
 import contactOverlayImage from '../../assets/contact/contact-overlay.jpg'
 import Button from '../Button/Button'
@@ -18,7 +18,13 @@ function GetInTouchPopup({ isOpen, onClose, socialItems, onSubmit }) {
     handleSubmit,
     isSubmitting,
     isSuccess,
+    resetSubmission,
   } = useContactSubmission(onSubmit, onClose)
+
+  const handleClose = useCallback(() => {
+    resetSubmission()
+    onClose()
+  }, [onClose, resetSubmission])
 
   useEffect(() => {
     if (!isOpen) {
@@ -32,7 +38,7 @@ function GetInTouchPopup({ isOpen, onClose, socialItems, onSubmit }) {
 
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') {
-        onClose()
+        handleClose()
       }
     }
 
@@ -43,7 +49,7 @@ function GetInTouchPopup({ isOpen, onClose, socialItems, onSubmit }) {
       document.removeEventListener('keydown', handleKeyDown)
       previousActiveElementRef.current?.focus()
     }
-  }, [isOpen, onClose])
+  }, [handleClose, isOpen])
 
   if (!isOpen) {
     return null
@@ -51,7 +57,7 @@ function GetInTouchPopup({ isOpen, onClose, socialItems, onSubmit }) {
 
   const handleBackdropPointerDown = (event) => {
     if (event.target === event.currentTarget) {
-      onClose()
+      handleClose()
     }
   }
 
@@ -67,7 +73,7 @@ function GetInTouchPopup({ isOpen, onClose, socialItems, onSubmit }) {
           type="button"
           className="get-in-touch-popup__close"
           aria-label="Close get in touch popup"
-          onClick={onClose}
+          onClick={handleClose}
         >
           <IoClose aria-hidden="true" />
         </button>

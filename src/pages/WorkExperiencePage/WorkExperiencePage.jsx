@@ -20,6 +20,7 @@ const JUNIOR_WEB_BUILDER_RESPONSIBILITIES = [
   'Produced an average of 40 real estate websites per month for U.S. clients.',
   'Collaborated directly with the Onboarding Manager to gather and translate Real Estate Agent requirements into compliant, production-ready websites.',
   'Ensured compliance with state regulations, brokerage guidelines, and MLS board requirements to mitigate legal and regulatory risk.',
+  'Applied foundational on-page SEO practices by creating and updating SEO titles and meta descriptions for client websites.',
   'Supported Real Estate Agents across U.S. and international markets.',
   'Used Presence CMS to create and deliver the websites.',
 ]

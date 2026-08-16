@@ -8,6 +8,22 @@ import './WebsiteGrid.css'
 const ALL_WEBSITES_FILTER = 'all'
 const WEBSITES_PER_PAGE = 9
 
+function getPaginationItems(currentPage, pageCount) {
+  if (pageCount <= 5) {
+    return Array.from({ length: pageCount }, (_, index) => index + 1)
+  }
+
+  if (currentPage <= 2) {
+    return [1, 2, 3, 'ellipsis-end', pageCount]
+  }
+
+  if (currentPage >= pageCount - 1) {
+    return [1, 'ellipsis-start', pageCount - 2, pageCount - 1, pageCount]
+  }
+
+  return [1, 'ellipsis-start', currentPage, 'ellipsis-end', pageCount]
+}
+
 function WebsiteGrid({
   categories,
   title = 'Websites I Helped Create',
@@ -27,6 +43,7 @@ function WebsiteGrid({
   const activeTitle = activeCategory?.title ?? title
   const activeDescription = activeCategory?.description ?? description
   const pageCount = Math.max(1, Math.ceil(websites.length / WEBSITES_PER_PAGE))
+  const paginationItems = getPaginationItems(currentPage, pageCount)
   const visibleWebsites = websites.slice(
     (currentPage - 1) * WEBSITES_PER_PAGE,
     currentPage * WEBSITES_PER_PAGE,
@@ -96,18 +113,28 @@ function WebsiteGrid({
           </Button>
 
           <div className="website-grid__page-numbers">
-            {Array.from({ length: pageCount }, (_, index) => index + 1).map((page) => (
-              <Button
-                className="website-grid__page-button"
-                key={page}
-                variant={currentPage === page ? 'solid' : 'outline'}
-                aria-label={`Go to page ${page}`}
-                aria-current={currentPage === page ? 'page' : undefined}
-                onClick={() => setCurrentPage(page)}
-              >
-                {page}
-              </Button>
-            ))}
+            {paginationItems.map((item) =>
+              typeof item === 'number' ? (
+                <Button
+                  className="website-grid__page-button"
+                  key={item}
+                  variant={currentPage === item ? 'solid' : 'outline'}
+                  aria-label={`Go to page ${item}`}
+                  aria-current={currentPage === item ? 'page' : undefined}
+                  onClick={() => setCurrentPage(item)}
+                >
+                  {item}
+                </Button>
+              ) : (
+                <span
+                  className="website-grid__page-ellipsis"
+                  key={item}
+                  aria-hidden="true"
+                >
+                  …
+                </span>
+              ),
+            )}
           </div>
 
           <Button

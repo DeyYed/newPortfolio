@@ -85,6 +85,12 @@ function useContactSubmission(onSubmit, onBeforeGoHome) {
     }
   }
 
+  const resetSubmission = useCallback(() => {
+    setStatus('idle')
+    setErrorMessage('')
+    setCountdown(REDIRECT_DELAY_SECONDS)
+  }, [])
+
   return {
     countdown,
     errorMessage,
@@ -92,6 +98,7 @@ function useContactSubmission(onSubmit, onBeforeGoHome) {
     handleSubmit,
     isSubmitting: status === 'submitting',
     isSuccess: status === 'success',
+    resetSubmission,
   }
 }
 
