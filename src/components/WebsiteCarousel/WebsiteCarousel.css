@@ -35,7 +35,7 @@
 }
 
 .website-carousel__heading {
-  max-width: 920px;
+  max-width: 1280px;
   margin: 0 auto 48px;
   text-align: center;
 }
@@ -50,10 +50,11 @@
 }
 
 .website-carousel__description {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 22px auto 0;
   font-size: 18px;
   line-height: 1.75;
+  white-space: nowrap;
 }
 
 .website-carousel__layout {
@@ -97,6 +98,12 @@
 .website-carousel__track > .website-card {
   flex: 0 0 calc((100% - 48px) / 3);
   scroll-snap-align: start;
+}
+
+@media (max-width: 1200px) {
+  .website-carousel__description {
+    white-space: normal;
+  }
 }
 
 @media (max-width: 1000px) {

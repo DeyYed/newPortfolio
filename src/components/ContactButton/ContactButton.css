@@ -36,9 +36,6 @@
   font-weight: 600;
   text-transform: uppercase;
   cursor: pointer;
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease;
 }
 
 .contact-button__trigger {
@@ -49,12 +46,6 @@
   font-size: 10px;
   font-weight: 500;
   line-height: 16px;
-}
-
-.contact-button__trigger:hover,
-.contact-button__trigger:focus-visible {
-  background-color: var(--color-white);
-  color: var(--color-black);
 }
 
 .contact-button__trigger:focus-visible,
