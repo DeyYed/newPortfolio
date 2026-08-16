@@ -50,6 +50,16 @@
   outline-offset: 3px;
 }
 
+.button:disabled {
+  cursor: wait;
+  opacity: 0.62;
+}
+
+.button:disabled:hover {
+  background-color: var(--button-color);
+  color: var(--button-contrast);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .button {
     transition: none;

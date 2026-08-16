@@ -90,6 +90,15 @@
   margin-top: 8px;
 }
 
+.contact-form__error {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #a01818;
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+}
+
 @media (max-width: 700px) {
   .contact-form-section {
     padding: 64px 20px 80px;
@@ -122,6 +131,7 @@
   }
 
   .contact-form__field--message,
+  .contact-form__error,
   .contact-form__submit {
     grid-column: auto;
   }

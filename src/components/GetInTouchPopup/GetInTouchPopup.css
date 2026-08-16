@@ -87,6 +87,13 @@
   resize: vertical;
 }
 
+.get-in-touch-popup__error {
+  margin: 0;
+  color: #a01818;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
 .get-in-touch-popup__field input:focus-visible,
 .get-in-touch-popup__field textarea:focus-visible {
   border-color: var(--color-black);

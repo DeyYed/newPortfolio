@@ -2,13 +2,23 @@ import { useEffect, useId, useRef } from 'react'
 import { IoClose } from 'react-icons/io5'
 import contactOverlayImage from '../../assets/contact/contact-overlay.jpg'
 import Button from '../Button/Button'
+import ContactSubmissionSuccess from '../ContactSubmissionSuccess/ContactSubmissionSuccess'
 import SocialLinks from '../SocialLinks/SocialLinks'
+import useContactSubmission, { FORMSPREE_ENDPOINT } from '../../hooks/useContactSubmission'
 import './GetInTouchPopup.css'
 
 function GetInTouchPopup({ isOpen, onClose, socialItems, onSubmit }) {
   const titleId = useId()
   const nameInputRef = useRef(null)
   const previousActiveElementRef = useRef(null)
+  const {
+    countdown,
+    errorMessage,
+    goHome,
+    handleSubmit,
+    isSubmitting,
+    isSuccess,
+  } = useContactSubmission(onSubmit, onClose)
 
   useEffect(() => {
     if (!isOpen) {
@@ -39,12 +49,6 @@ function GetInTouchPopup({ isOpen, onClose, socialItems, onSubmit }) {
     return null
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    const formData = Object.fromEntries(new FormData(event.currentTarget))
-    onSubmit?.(formData, event)
-  }
-
   const handleBackdropPointerDown = (event) => {
     if (event.target === event.currentTarget) {
       onClose()
@@ -73,7 +77,15 @@ function GetInTouchPopup({ isOpen, onClose, socialItems, onSubmit }) {
             Get in Touch
           </h2>
 
-          <form className="get-in-touch-popup__form" onSubmit={handleSubmit}>
+          {isSuccess ? (
+            <ContactSubmissionSuccess countdown={countdown} onGoHome={goHome} />
+          ) : (
+          <form
+            className="get-in-touch-popup__form"
+            action={FORMSPREE_ENDPOINT}
+            method="post"
+            onSubmit={handleSubmit}
+          >
             <label className="get-in-touch-popup__field">
               <span>Name <span aria-hidden="true">*</span></span>
               <input ref={nameInputRef} type="text" name="name" autoComplete="name" required />
@@ -89,10 +101,17 @@ function GetInTouchPopup({ isOpen, onClose, socialItems, onSubmit }) {
               <textarea name="message" rows="7" />
             </label>
 
-            <Button type="submit" variant="solid">
-              Submit
+            {errorMessage ? (
+              <p className="get-in-touch-popup__error" role="alert">
+                {errorMessage}
+              </p>
+            ) : null}
+
+            <Button type="submit" variant="solid" disabled={isSubmitting}>
+              {isSubmitting ? 'Sending...' : 'Submit'}
             </Button>
           </form>
+          )}
         </div>
 
         <div className="get-in-touch-popup__image-panel">

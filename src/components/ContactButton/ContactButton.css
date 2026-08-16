@@ -150,6 +150,13 @@
   margin-top: 2px;
 }
 
+.contact-button__error {
+  margin: 0;
+  color: #a01818;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
 @keyframes contact-button-panel-in {
   from {
     opacity: 0;

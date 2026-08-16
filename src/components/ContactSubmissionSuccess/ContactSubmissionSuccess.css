@@ -1,0 +1,47 @@
+.contact-submission-success {
+  width: min(100%, 680px);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.contact-submission-success__title {
+  margin: 0;
+  font-family: var(--font-header);
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-heading);
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.contact-submission-success__message,
+.contact-submission-success__countdown {
+  margin: 0;
+  line-height: 1.7;
+}
+
+.contact-submission-success__message {
+  font-size: 17px;
+}
+
+.contact-submission-success__countdown {
+  font-size: 13px;
+  opacity: 0.68;
+}
+
+@media (max-width: 700px) {
+  .contact-submission-success {
+    gap: 20px;
+  }
+
+  .contact-submission-success__message {
+    font-size: 14px;
+  }
+
+  .contact-submission-success__countdown {
+    font-size: 12px;
+  }
+}

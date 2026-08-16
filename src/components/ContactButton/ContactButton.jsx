@@ -1,6 +1,8 @@
 import { useEffect, useId, useRef, useState } from 'react'
 import { IoClose } from 'react-icons/io5'
 import Button from '../Button/Button'
+import ContactSubmissionSuccess from '../ContactSubmissionSuccess/ContactSubmissionSuccess'
+import useContactSubmission, { FORMSPREE_ENDPOINT } from '../../hooks/useContactSubmission'
 import './ContactButton.css'
 
 function ContactButton({
@@ -17,6 +19,14 @@ function ContactButton({
   const nameInputRef = useRef(null)
   const wasOpenRef = useRef(false)
   const formId = useId()
+  const {
+    countdown,
+    errorMessage,
+    goHome,
+    handleSubmit,
+    isSubmitting,
+    isSuccess,
+  } = useContactSubmission(onSubmit, () => setIsOpen(false))
 
   const closeForm = () => {
     setIsOpen(false)
@@ -85,13 +95,6 @@ function ContactButton({
     wasOpenRef.current = isOpen
   }, [isFooterVisible, isOpen])
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-
-    const formData = Object.fromEntries(new FormData(event.currentTarget))
-    onSubmit?.(formData, event)
-  }
-
   return (
     <div
       className={`contact-button contact-button--${variant} ${
@@ -120,7 +123,15 @@ function ContactButton({
             </button>
           </div>
 
-          <form className="contact-button__form" onSubmit={handleSubmit}>
+          {isSuccess ? (
+            <ContactSubmissionSuccess countdown={countdown} onGoHome={goHome} />
+          ) : (
+          <form
+            className="contact-button__form"
+            action={FORMSPREE_ENDPOINT}
+            method="post"
+            onSubmit={handleSubmit}
+          >
             <label className="contact-button__field">
               <span>Name <span aria-hidden="true">*</span></span>
               <input ref={nameInputRef} type="text" name="name" autoComplete="name" required />
@@ -141,10 +152,22 @@ function ContactButton({
               <textarea name="message" rows="4" />
             </label>
 
-            <Button className="contact-button__submit" type="submit" variant="solid">
-              {submitLabel}
+            {errorMessage ? (
+              <p className="contact-button__error" role="alert">
+                {errorMessage}
+              </p>
+            ) : null}
+
+            <Button
+              className="contact-button__submit"
+              type="submit"
+              variant="solid"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Sending...' : submitLabel}
             </Button>
           </form>
+          )}
         </section>
       )}
 
