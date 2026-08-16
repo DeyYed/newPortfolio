@@ -9,7 +9,7 @@ export const HEADER_NAV_ITEMS = [
 ]
 
 export const SIDE_MENU_ITEMS = [
-  { label: 'Home', href: '#home' },
+  { label: 'Home', href: '/' },
   { label: 'About Me', href: '/about' },
   {
     label: 'Resume',

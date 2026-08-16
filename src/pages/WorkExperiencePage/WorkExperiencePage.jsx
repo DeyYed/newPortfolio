@@ -35,6 +35,20 @@ function WorkExperiencePage({ onGetInTouch }) {
         description="From delivering hands-on technical support to building production-ready real estate websites, my experience reflects adaptability, technical problem-solving, attention to compliance, and a commitment to meeting each client’s needs."
       />
       <ExperienceFeature
+        title="Junior Web Builder"
+        company="Luxury Presence"
+        employmentType="Full-time"
+        dates="November 2025 – Present"
+        duration="10 months"
+        location="United States"
+        workArrangement="Remote"
+        responsibilities={JUNIOR_WEB_BUILDER_RESPONSIBILITIES}
+        images={[
+          { src: luxuryPresenceLogo, alt: 'Luxury Presence logo' },
+        ]}
+        imagePosition="left"
+      />
+      <ExperienceFeature
         title="Technical Support Specialist"
         company="InspiringPG, Inc."
         employmentType="Internship"
@@ -48,20 +62,6 @@ function WorkExperiencePage({ onGetInTouch }) {
           { src: inspiringPgLogo, alt: 'InspiringPG logo' },
           { src: fiberHomeLogo, alt: 'FiberHome logo' },
         ]}
-      />
-      <ExperienceFeature
-        title="Junior Web Builder"
-        company="Luxury Presence"
-        employmentType="Full-time"
-        dates="November 2025 – Present"
-        duration="10 months"
-        location="United States"
-        workArrangement="Remote"
-        responsibilities={JUNIOR_WEB_BUILDER_RESPONSIBILITIES}
-        images={[
-          { src: luxuryPresenceLogo, alt: 'Luxury Presence logo' },
-        ]}
-        imagePosition="left"
       />
       <WWU imageSrc={wwuImage} onButtonClick={onGetInTouch} />
     </main>

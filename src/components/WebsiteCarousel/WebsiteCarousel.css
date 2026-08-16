@@ -135,13 +135,32 @@
   }
 
   .website-carousel__layout {
-    grid-template-columns: 44px minmax(0, 1fr) 44px;
-    gap: 8px;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 28px;
+    column-gap: 12px;
   }
 
   .website-carousel__arrow {
     width: 44px;
     height: 44px;
+  }
+
+  .website-carousel__arrow:first-child {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: end;
+  }
+
+  .website-carousel__arrow:last-child {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: start;
+  }
+
+  .website-carousel__viewport {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
   }
 
   .website-carousel__track {

@@ -31,7 +31,11 @@ function WebsiteCarousel({
   const activeDescription = activeCategory?.description ?? description
   const filterOptions = [
     categories[0],
-    { id: ALL_WEBSITES_FILTER, filterLabel: 'All Websites' },
+    {
+      id: ALL_WEBSITES_FILTER,
+      filterLabel: 'All Websites',
+      mobileFilterLabel: 'All Site',
+    },
     ...categories.slice(1),
   ].filter(Boolean)
 
@@ -137,10 +141,16 @@ function WebsiteCarousel({
               className="website-carousel__filter"
               key={filter.id}
               variant={activeFilter === filter.id ? 'solid' : 'outline'}
+              aria-label={filter.filterLabel}
               aria-pressed={activeFilter === filter.id}
               onClick={() => setActiveFilter(filter.id)}
             >
-              {filter.filterLabel}
+              <span className="website-filter-label website-filter-label--desktop">
+                {filter.filterLabel}
+              </span>
+              <span className="website-filter-label website-filter-label--mobile">
+                {filter.mobileFilterLabel ?? filter.filterLabel}
+              </span>
             </Button>
           ))}
         </div>

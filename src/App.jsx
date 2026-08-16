@@ -125,6 +125,12 @@ function App() {
       return
     }
 
+    if (item.href === '/') {
+      event.preventDefault()
+      handleGoHome()
+      return
+    }
+
     if (item.href === '/contact') {
       event.preventDefault()
       handleContact()

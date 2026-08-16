@@ -115,6 +115,7 @@ export const WEBSITE_CATEGORIES = [
   {
     id: 'drafts',
     filterLabel: 'Website Draft',
+    mobileFilterLabel: 'WD',
     title: 'Websites Built from Scratch',
     description:
       'Websites I developed from the initial concept and layout through to the completed design and functionality.',
@@ -123,6 +124,7 @@ export const WEBSITE_CATEGORIES = [
   {
     id: 'revisions',
     filterLabel: 'Revision Round',
+    mobileFilterLabel: 'RR',
     title: 'Website Revisions & Client-Requested Enhancements',
     description:
       'Existing websites I helped improve by implementing revisions and updates based on each client’s goals, preferences, and feedback.',
