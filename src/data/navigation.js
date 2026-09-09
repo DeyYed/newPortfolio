@@ -1,4 +1,4 @@
-import resumePdf from '../assets/documents/resume.pdf'
+import resumePdf from '../assets/documents/resume(1).pdf'
 
 export const HEADER_NAV_ITEMS = [
   { label: 'About Me', href: '/about' },
